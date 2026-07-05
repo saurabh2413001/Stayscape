@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-sand text-charcoal dark:bg-ink-900 dark:text-ink-50 font-sans antialiased transition-colors duration-300;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display;
+  }
+
+  ::selection {
+    @apply bg-marigold-200 text-ink-800;
+  }
+
+  /* Visible keyboard focus everywhere */
+  :focus-visible {
+    outline: 2px solid #F5A623;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-marigold-500 px-5 py-2.5 text-sm font-semibold text-ink-900 shadow-card transition-all hover:bg-marigold-400 hover:shadow-card-hover active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-ink-200 bg-white px-5 py-2.5 text-sm font-semibold text-ink-700 transition-all hover:border-ink-700 hover:bg-ink-50 active:scale-[0.98] dark:bg-ink-800 dark:border-ink-600 dark:text-ink-50 dark:hover:bg-ink-700;
+  }
+
+  .input-field {
+    @apply w-full rounded-xl border border-ink-100 bg-white px-4 py-2.5 text-sm text-ink-700 placeholder:text-ink-300 focus:border-marigold-500 focus:ring-2 focus:ring-marigold-200 dark:bg-ink-800 dark:border-ink-600 dark:text-ink-50 dark:placeholder:text-ink-400;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-ink-100 bg-white px-3.5 py-1.5 text-xs font-medium text-ink-600 shadow-sm transition-all hover:border-teal-400 hover:text-teal-600 dark:bg-ink-800 dark:border-ink-600 dark:text-ink-100;
+  }
+
+  .chip-active {
+    @apply bg-teal-500 border-teal-500 text-white hover:text-white hover:border-teal-500;
+  }
+
+  .skeleton {
+    @apply bg-gradient-to-r from-ink-50 via-ink-100 to-ink-50 bg-[length:800px_100%] animate-shimmer dark:from-ink-800 dark:via-ink-700 dark:to-ink-800;
+  }
+}
