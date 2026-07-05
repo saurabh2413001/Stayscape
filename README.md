@@ -94,24 +94,11 @@ npm run build     # production build into dist/
 npm run preview   # preview the production build locally
 ```
 
-## A note on the API
+## API Notes
 
-The API's documentation describes query params for filtering, sorting, and pagination
-(`?location=`, `?min_price=`, `?order_by=`, etc.), but the deployed instance ignores them
-and always returns the full 500-hotel dataset. To keep the app reliable regardless of that,
-all searching, filtering, sorting, and pagination happen **client-side** in
-`src/hooks/useHotels.js`, after a single fetch that's cached for the session
-(`src/api/hotelsApi.js`).
+Filtering, sorting, and pagination are handled client-side to ensure reliability, since the deployed API always returns the full dataset.
 
-## Pushing to GitHub
-
-```bash
-git init
-git add .
-git commit -m "Initial commit: Stayscape hotel explorer"
-git branch -M main
-git remote add origin <your-repo-url>
-git push -u origin main
-```
-
+## Deployment
+“Push to GitHub as usual” 
+Use standard Git workflow to push the project to GitHub.
 (`node_modules/` and `dist/` are already excluded via `.gitignore`.)
